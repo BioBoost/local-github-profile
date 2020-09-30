@@ -14,12 +14,18 @@ Next navigate to your own profile using the GitHub API. For example [https://api
 
 Save the result as `data/users/<username>.json` where you replace the username tag with your own username, so for example `data/users/bioboost.json`.
 
+Install the dependencies:
+
+```bash
+npm install
+```
+
 ### Start the API process
 
 Next start the API service locally using:
 
 ```bash
-npm run serve
+npm run start
 ```
 
 ## Dependencies

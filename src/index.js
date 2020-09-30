@@ -2,9 +2,13 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const fs = require("fs");
 const config = require("./config.js");
+const cors = require('cors');
 
 // Create Express App
 const app = express();
+
+// Cross-Origin Resource Sharing
+app.use(cors());    // Allow-all
 
 // Handle JSON body - utf8 encoded
 app.use(bodyParser.json());
@@ -16,7 +20,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/users/:un", (req, res) => {
-  const username = req.params.un;
+  const username = req.params.un.toLowerCase();
   console.log(`Fetching user resource with username = ${username}`);
   const filename = `${config.DATAPATH}/users/${username}.json`;
 
